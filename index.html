@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ctn {
+            display: flex;
+            justify-content: space-around;
+            width: 85%;
+            margin: 2rem auto;
+            /* align-items: center; */
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .form-left {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-left h1 {
+            font-size: 3rem;
+        }
+
+        .form-left p {
+            font-size: 1.2rem;
+        }
+
+        .form-left img {
+            width: 100%;
+        }
+
+        .form-right {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .form-group {
+            padding-block: 1rem;
+        }
+
+        /* General form styles */
+        .form-group {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-legend {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Radio group styles */
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Radio button and label styles */
+        .radio-label,
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .radio-label:hover,
+        .checkbox-label:hover {
+            background-color: #e6f7ff;
+            border-color: #91d5ff;
+        }
+
+        .radio-input,
+        .checkbox-input,
+        .checkbox-input:checked+.checkbox-label {
+            margin-right: 10px;
+        }
+
+        /* Checked radio button styles */
+        .radio-input:checked+.radio-label {
+            background-color: #bae7ff;
+            border-color: #1890ff;
+        }
+
+
+        .form-group input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            padding: 10px 20px;
+            width: 90%;
+            border: none;
+            border-bottom: 2px solid rgb(236, 179, 179);
+            background-color: #f9f9f9;
+            outline: none;
+        }
+
+        .select-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border: 1px solid #e5e3e3;
+            border-radius: 4px;
+            /* background: white; */
+            width: 100%;
+            cursor: pointer;
+            margin-top: 0.8rem;
+        }
+
+        .select-toggle-text {
+            margin-right: 1rem;
+        }
+        
+        .flex-ctn{
+            display: flex;
+            gap: 1rem;
+        }
+
+        .submit-button {
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="ctn">
+        <div class="form-left">
+            <h1>Getting Ready to start?</h1>
+            <p>We'd love you to join us. Fill out the form below to get things underway. You'll be selling before you
+                know it.</p>
+            <img src="seller.svg" alt="">
+        </div>
+        <div class="form-right">
+            <form action="">
+                <div class="form-group">
+                    <label for="first_name">First Name</label><br>
+                    <input type="text" placeholder="Enter First Name">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label><br>
+                    <input type="text" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label><br>
+                    <input type="email" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                    <label for="first_name">Phone Number</label><br>
+                    <input type="number" placeholder="Enter Your Number">
+                </div>
+                <div class="form-group">
+                    <label for="first_name">Company Name</label><br>
+                    <input type="text" placeholder="Enter Company Name [optional]">
+                </div>
+                <div class="form-group">
+                    <label for="first_name">Website Address</label><br>
+                    <input type="text" placeholder="Enter Website Address [optional]">
+                </div>
+                <div class="form-group">
+                    <legend class="form-legend">Which of these best describes you?</legend>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" value="Plant nursery"
+                                name="custom#which_of_these_best_describes_you" class="radio-input">Plant
+                            nursery</label>
+                        <label class="radio-label"><input type="radio" value="Plant retailer"
+                                name="custom#which_of_these_best_describes_you" class="radio-input">Plant
+                            retailer</label>
+                        <label class="radio-label"><input type="radio" value="Hobbyist grower"
+                                name="custom#which_of_these_best_describes_you" class="radio-input">Hobbyist
+                            grower</label>
+                        <label class="radio-label"><input type="radio" value="Other"
+                                name="custom#which_of_these_best_describes_you" class="radio-input">Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Region where you are based (for shipping & collections)</label>
+                    <button type="button" aria-expanded="false"
+                        aria-controls="custom#region_based_for_shipping__collections-selector-dropdown"
+                        class="select-toggle">
+                        <span class="select-toggle-text">Select your region</span>
+                        <span class="arrow-down-icon">
+                            <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.09832 0.470704L0.901685 0.470703C0.15069 0.470703 -0.269991 1.22421 0.193991 1.73831L3.29231 5.17126C3.65265 5.57052 4.34735 5.57052 4.70769 5.17126L7.80601 1.73831C8.26999 1.22421 7.84931 0.470704 7.09832 0.470704Z"
+                                    fill="#5C5F62"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <legend class="form-legend">Select the answer that suits best</legend>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio"
+                                value="I regularly package and ship plants by courier"
+                                name="custom#select_the_answer_that_suits_best" class="radio-input">I regularly package
+                            and
+                            ship plants by courier</label>
+                        <label class="radio-label"><input type="radio"
+                                value="I occasionally package and ship plants by courier"
+                                name="custom#select_the_answer_that_suits_best" class="radio-input">I occasionally
+                            package
+                            and ship plants by courier</label>
+                        <label class="radio-label"><input type="radio"
+                                value="I don't yet have experience shipping plants, but keen to learn"
+                                name="custom#select_the_answer_that_suits_best" class="radio-input">I don't yet have
+                            experience shipping plants, but keen to learn</label>
+                        <label class="radio-label"><input type="radio" value="I don't ship, my products are pickup only"
+                                name="custom#select_the_answer_that_suits_best" class="radio-input">I don't ship, my
+                            products are pickup only</label>
+                        <label class="radio-label"><input type="radio" value="Other"
+                                name="custom#select_the_answer_that_suits_best" class="radio-input">Other</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <legend class="form-legend">Select the categories you may be interested in selling under</legend>
+                    <div class="checkbox-group">
+                        <div class="flex-ctn">
+                            <div class="flex">
+                                <label class="checkbox-label"><input type="checkbox" value="Palms & Cycads"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Palms & Cycads</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Indoor plants"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Indoor plants</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Outdoor plants"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Outdoor plants</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Orchids"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Orchids</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Pots & Planters"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Pots & Planters</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Edible plants"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Edible plants</label>
+                            </div>
+                            <div class="flex">
+                                <label class="checkbox-label"><input type="checkbox" value="Succulents"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Succulents</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Bonsai"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Bonsai</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Carnivorous"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Carnivorous</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Seeds, bulbs etc."
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Seeds, bulbs etc.</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Garden supplies"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Garden supplies</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Other"
+                                        name="custom#select_the_categories_you_be_interested_in_selling_under"
+                                        class="checkbox-input">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <legend class="form-legend">Can you provide the correct scientific name for any plants you wish to
+                        sell?
+                    </legend>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" value="Yes"
+                                name="custom#can_you_provide_the_correct_scientific_name_for_any_plants_you_wish_to_sell"
+                                class="radio-input">Yes</label>
+                        <label class="radio-label"><input type="radio" value="No"
+                                name="custom#can_you_provide_the_correct_scientific_name_for_any_plants_you_wish_to_sell"
+                                class="radio-input">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <legend class="form-legend">Do you currently use or have you used Shopify before?</legend>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" value="Yes"
+                                name="custom#do_you_currently_use_or_have_you_used_shopify_before"
+                                class="radio-input">Yes</label>
+                        <label class="radio-label"><input type="radio" value="No"
+                                name="custom#do_you_currently_use_or_have_you_used_shopify_before"
+                                class="radio-input">No</label>
+                    </div>
+                </div>
+                <div class="form-grou">
+                    <button type="submit" class="submit-button" aria-busy="false"
+                        data-testid="button-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
