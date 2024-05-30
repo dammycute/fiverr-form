@@ -10,36 +10,16 @@
         body{
             font-family: "Asul", serif;
         }
+
         .ctn {
-            display: flex;
-            justify-content: space-around;
-            width: 85%;
+            width: 60%;
             margin: 2rem auto;
-            /* align-items: center; */
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .form-left {
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .form-left h1 {
-            font-size: 3rem;
-        }
-
-        .form-left p {
-            font-size: 1.2rem;
-        }
-
-        .form-left img {
-            width: 100%;
         }
 
         .form-right {
             width: 100%;
-            max-width: 450px;
+            /* max-width: 450px; */
+            background-color: #fff;
         }
 
         .form-group {
@@ -53,6 +33,32 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #f9f9f9;
+        }
+
+        .form-group.phone-group {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .select-container {
+  margin-right: 10px;
+}
+
+        .flag-icon {
+            width: 24px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        /* Phone input container styles */
+        .phone-input-container {
+            flex-grow: 1;
         }
 
         .form-legend {
@@ -102,7 +108,7 @@
 
         .form-group input[type="text"],
         input[type="email"],
-        input[type="number"] {
+        input[type="tel"] {
             padding: 10px 20px;
             width: 90%;
             border: none;
@@ -127,58 +133,80 @@
         .select-toggle-text {
             margin-right: 1rem;
         }
-        
-        .flex-ctn{
+
+        .flex-ctn {
             display: flex;
             gap: 1rem;
         }
 
         .submit-button {
             padding: 0.75rem;
-            background-color: #007bff;
+            background-color: #dd1d1d;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             width: 100%;
         }
-        
+
+        @media (max-width: 600px) {
+            .ctn{
+                width: 85% !important;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="ctn">
-        <div class="form-left">
+        <div class="form-right">
             <h1>Getting Ready to start?</h1>
             <p>We'd love you to join us. Fill out the form below to get things underway. You'll be selling before you
                 know it.</p>
-            <img src="seller.svg" alt="">
-        </div>
-        <div class="form-right">
-            <form action="">
+            <form novalidate data-testid="form" class="form-container">
                 <div class="form-group">
-                    <label for="first_name">First Name</label><br>
-                    <input type="text" placeholder="Enter First Name">
+                    <label for="first_name" class="form-label">First name</label>
+                    <input id="first_name" type="text" autocomplete="off" aria-labelledby="label-first_name"
+                        data-testid="field-first_name" class="form-input" placeholder="First name">
                 </div>
                 <div class="form-group">
-                    <label for="last_name">Last Name</label><br>
-                    <input type="text" placeholder="Enter Last Name">
+                    <label for="last_name" class="form-label">Last name</label>
+                    <input id="last_name" type="text" autocomplete="off" aria-labelledby="label-last_name"
+                        data-testid="field-last_name" class="form-input" placeholder="Last name">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label><br>
-                    <input type="email" placeholder="Enter Email">
+                    <label for="email" class="form-label">Email address</label>
+                    <input id="email" type="email" autocomplete="off" aria-labelledby="label-email"
+                        data-testid="field-email" class="form-input" placeholder="Email address">
+                </div>
+                <div class="form-group phone-group">
+                    <div class="select-container">
+                        <button type="button" aria-expanded="false" aria-controls="country-selector-dropdown"
+                            class="select-toggle">
+                            <img src="https://cdn.shopify.com/static/images/flags/ng.svg" alt="Nigeria"
+                                class="flag-icon">
+                        </button>
+                    </div>
+                    <div class="phone-input-container">
+                        <label for="phone_number" class="form-label">Phone</label>
+                        <input type="tel" autocomplete="tel" aria-labelledby="label-Phone" id="phone_number"
+                            data-testid="field-phone_number" name="phone_number" class="form-input"
+                            placeholder="Phone number">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="first_name">Phone Number</label><br>
-                    <input type="number" placeholder="Enter Your Number">
+                    <label for="company_name_optional" class="form-label">Company name [optional]</label>
+                    <input id="custom#company_name_optional" type="text" autocomplete="off"
+                        aria-labelledby="label-custom#company_name_optional"
+                        data-testid="field-custom#company_name_optional" class="form-input"
+                        placeholder="Company name">
                 </div>
                 <div class="form-group">
-                    <label for="first_name">Company Name</label><br>
-                    <input type="text" placeholder="Enter Company Name [optional]">
-                </div>
-                <div class="form-group">
-                    <label for="first_name">Website Address</label><br>
-                    <input type="text" placeholder="Enter Website Address [optional]">
+                    <label for="website_address_optional" class="form-label">Website address [optional]</label>
+                    <input id="custom#website_address_optional" type="text" autocomplete="off"
+                        aria-labelledby="label-custom#website_address_optional"
+                        data-testid="field-custom#website_address_optional" class="form-input"
+                        placeholder="Website address">
                 </div>
                 <div class="form-group">
                     <legend class="form-legend">Which of these best describes you?</legend>
